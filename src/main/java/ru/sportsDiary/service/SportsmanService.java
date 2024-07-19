@@ -1,6 +1,5 @@
 package ru.sportsDiary.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.sportsDiary.entity.Sportsman;
 import ru.sportsDiary.repository.SportsmanRepo;
@@ -13,7 +12,6 @@ public class SportsmanService {
 
     private final SportsmanRepo sportsmanRepo;
 
-    @Autowired
     public SportsmanService(SportsmanRepo sportsmanRepo) {
         this.sportsmanRepo = sportsmanRepo;
     }
