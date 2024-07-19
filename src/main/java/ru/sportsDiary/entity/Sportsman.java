@@ -31,9 +31,9 @@ public class Sportsman {
     private Date birthDate;
 
     @Column(name = "height")
-    private Integer height;
+    private Float height;
 
     @Column(name = "weight")
-    private Integer weight;
+    private Float weight;
 
 }
