@@ -1,5 +1,6 @@
 package ru.sportsDiary.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sportsDiary.entity.Sportsman;
 import ru.sportsDiary.repository.SportsmanRepo;
@@ -8,13 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class SportsmanService {
 
     private final SportsmanRepo sportsmanRepo;
-
-    public SportsmanService(SportsmanRepo sportsmanRepo) {
-        this.sportsmanRepo = sportsmanRepo;
-    }
 
     public List<Sportsman> getAllSportsmen() {
         return sportsmanRepo.findAll();
