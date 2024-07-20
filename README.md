@@ -26,7 +26,7 @@ SportsDiary - это приложение для ведения спортивн
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/yourusername/sports-diary.git
+   https://github.com/SI1V/sportsDiary.git
 
 2. Перейдите в директорию проекта:
    ```bash
