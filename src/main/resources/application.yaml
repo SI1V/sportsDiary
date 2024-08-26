@@ -6,3 +6,4 @@ spring:
     username: postgres
     password: A123456z
 debug: false
+

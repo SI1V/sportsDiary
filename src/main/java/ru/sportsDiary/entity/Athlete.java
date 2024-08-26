@@ -3,14 +3,16 @@ package ru.sportsDiary.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "sportsman", schema = "sports_diary")
+@Table(name = "athlete", schema = "sports_diary")
 @Data
 @NoArgsConstructor
-public class Sportsman {
+@Component
+public class Athlete {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
