@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Table(name = "exercise", schema = "sports_diary")
 @NoArgsConstructor
 @Entity
 public class Exercise {
@@ -14,15 +15,17 @@ public class Exercise {
     private Long exerciseID;
 
     @Column(name = "name", nullable = false)
-    private String exersise_name;
+    private String exerciseName;  // Исправлено название переменной
+
+    @Column(name = "description")  // Указан атрибут name, а не description
+    private String description;
+
+    @Column(name = "muscle_group")  // Правильное использование атрибута name
+    private String muscleGroup;  // Название переменной приведено к camelCase
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
     private ExerciseType type;
-
-    @ManyToOne
-    @JoinColumn(name = "programID")
-    private Program program;
 
     public enum ExerciseType {
         CARDIO,
