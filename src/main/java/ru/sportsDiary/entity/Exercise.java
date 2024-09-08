@@ -1,31 +1,36 @@
 package ru.sportsDiary.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "exercises")
 @Data
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
+@Builder
 public class Exercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long exerciseID;
+    @Column(name = "exercise_id")
+    private Long exerciseId;
 
-    @Column(name = "name", nullable = false)
-    private String exersise_name;
+    @Column(name = "exercise_name", nullable = false)
+    private String exerciseName;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "type", nullable = false)
-    private ExerciseType type;
+    @Column(name = "exercise_description")
+    private String exerciseDescription;
 
-    @ManyToOne
-    @JoinColumn(name = "programID")
-    private Program program;
+    @Column(name = "muscle_group")
+    private String muscleGroup;
 
-    public enum ExerciseType {
-        CARDIO,
-        STRENGTH
-    }
+    @Column(name = "exercise_type", nullable = false)
+    private String exerciseType;
+
+    @Column(name = "is_default", nullable = false)
+    private Boolean isDefault;
 }

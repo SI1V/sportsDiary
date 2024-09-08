@@ -1,67 +1,40 @@
 package ru.sportsDiary.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.sportsDiary.entity.Athlete;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-/**
- * Класс Workout представляет сущность "Тренировка" в базе данных.
- * Он использует аннотации JPA для определения таблицы в базе данных и полей таблицы.
- *
- * @author Ivanov Ivan
- * @version 1.0
- */
 @Entity
-@Table(name = "workout", schema = "sports_diary")
+@Table(name = "workouts")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Workout {
 
-    /**
-     * Поле workoutID представляет уникальный идентификатор тренировки.
-     * Оно является первичным ключом и генерируется автоматически при создании новой тренировки.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long workoutID;
+    @Column(name = "workout_id")
+    private Long workoutId;
 
-    /**
-     * Поле workout_date представляет дату проведения тренировки.
-     * Оно не может быть null.
-     */
-    @Column(name = "date", nullable = false)
-    private Date workout_date;
+    @Column(name = "workout_date", nullable = false)
+    private LocalDate workoutDate;
 
-    /**
-     * Поле workout_duration представляет продолжительность тренировки в минутах.
-     * Оно не может быть null.
-     */
-    @Column(name = "duration", nullable = false)
-    private Integer workout_duration;
+    @Column(name = "workout_duration", nullable = false)
+    private Integer workoutDuration;
 
-    /**
-     * Поле workout_type представляет тип тренировки (например, "бег", "плавание", "йога" и т.д.).
-     * Оно не может быть null.
-     */
-    @Column(name = "type", nullable = false)
-    private String workout_type;
+    @Column(name = "workout_description", nullable = false)
+    private String workoutDescription;
 
-    /**
-     * Поле workout_description представляет описание тренировки.
-     * Оно не может быть null.
-     */
-    @Column(name = "description", nullable = false)
-    private String workout_description;
-
-    /**
-     * Поле athlete представляет связь с классом Athlete (атлет).
-     * Это поле является внешним ключом, который связывает тренировку с конкретным атлетом.
-     */
     @ManyToOne
-    @JoinColumn(name = "athleteID")
+    @JoinColumn(name = "athlete_id")
     private Athlete athlete;
+
+    @Column(name = "workout_comments")
+    private String workoutComments;
 }
-
-
