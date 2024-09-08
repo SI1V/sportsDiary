@@ -26,16 +26,16 @@ public class WorkoutExercise {
     @ManyToOne
     @JoinColumn(name = "exercise_id", nullable = false)
     private Exercise exercise;
-
-    @Column(name = "comments")
-    private String comments;
-
-    @Column(name = "reps")
-    private Integer reps;
-
-    @Column(name = "weight_kg")
-    private Double weightKg;
-
-    @Column(name = "duration_seconds")
-    private Integer durationSeconds;
+// TODO: удалить поля и сравнить с моделью в БД
+//    @Column(name = "comments")
+//    private String comments;
+//
+//    @Column(name = "reps")
+//    private Integer reps;
+//
+//    @Column(name = "weight_kg")
+//    private Double weightKg;
+//
+//    @Column(name = "duration_seconds")
+//    private Integer durationSeconds;
 }

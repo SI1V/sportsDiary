@@ -6,6 +6,7 @@ import ru.sportsDiary.entity.WorkoutSet;
 import ru.sportsDiary.service.WorkoutSetService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/workout-sets")
@@ -24,8 +25,13 @@ public class WorkoutSetController {
     }
 
     @GetMapping("/{id}")
-    public WorkoutSet getWorkoutSetById(@PathVariable("id") Long id) {
-        return workoutSetService.getWorkoutSetById(id).orElse(null);
+    public Optional<WorkoutSet> getWorkoutSetById(@PathVariable("id") Long id) {
+        return workoutSetService.findWorkoutSetById(id);
+    }
+
+    @GetMapping("/exercise/{workoutExerciseId}")
+    public List<WorkoutSet> getWorkoutSetsByExercise(@PathVariable Long workoutExerciseId) {
+        return workoutSetService.findSetsByWorkoutExerciseId(workoutExerciseId);
     }
 
     @PostMapping

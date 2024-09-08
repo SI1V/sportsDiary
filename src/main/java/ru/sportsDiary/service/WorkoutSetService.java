@@ -11,23 +11,19 @@ import java.util.Optional;
 @Service
 public class WorkoutSetService {
 
-    private final WorkoutSetRepository workoutSetRepository;
-
     @Autowired
-    public WorkoutSetService(WorkoutSetRepository workoutSetRepository) {
-        this.workoutSetRepository = workoutSetRepository;
-    }
+    private WorkoutSetRepository workoutSetRepository;
 
     public List<WorkoutSet> getAllWorkoutSets() {
         return workoutSetRepository.findAll();
     }
 
-    public Optional<WorkoutSet> getWorkoutSetById(Long id) {
+    public Optional<WorkoutSet> findWorkoutSetById(Long id) {
         return workoutSetRepository.findById(id);
     }
 
-    public List<WorkoutSet> getWorkoutSetsByWorkoutExerciseId(Long workoutExerciseId) {
-        return workoutSetRepository.findByWorkoutExerciseId(workoutExerciseId);
+    public List<WorkoutSet> findSetsByWorkoutExerciseId(Long workoutExerciseId) {
+        return workoutSetRepository.findByWorkoutExercise_WorkoutExerciseId(workoutExerciseId);
     }
 
     public WorkoutSet saveWorkoutSet(WorkoutSet workoutSet) {

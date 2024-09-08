@@ -38,4 +38,5 @@ public class Athlete {
 
     @Column(name = "weight_kg")
     private Double weightKg;
+
 }

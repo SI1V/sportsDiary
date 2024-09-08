@@ -2,7 +2,6 @@ package ru.sportsDiary.controller;
 import org.springframework.ui.Model;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import ru.sportsDiary.entity.Athlete;
 import ru.sportsDiary.service.AthleteService;
@@ -37,7 +36,7 @@ public class AthleteController {
 
     @PutMapping("/{id}")
     public Athlete updateAthlete(@PathVariable("id") Long id, @RequestBody Athlete athlete) {
-        athlete.setId(id);
+        athlete.setAthleteId(id);
         return athleteService.saveAthlete(athlete);
     }
 

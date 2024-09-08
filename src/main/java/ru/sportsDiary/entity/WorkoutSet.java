@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WorkoutSet<WorkoutExercise> {
+public class WorkoutSet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

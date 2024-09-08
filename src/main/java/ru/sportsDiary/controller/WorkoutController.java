@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/workouts")
-public class WorkoutController<WorkoutService> {
+public class WorkoutController {
 
     private final WorkoutService workoutService;
 

@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface ProgramRepository extends JpaRepository<Program, Long> {
     // Поиск всех программ для конкретного атлета
-    List<Program> findByAthleteId(Long athleteId);
+    List<Program> findByAthleteAthleteId(Long athleteId);
 }
-
