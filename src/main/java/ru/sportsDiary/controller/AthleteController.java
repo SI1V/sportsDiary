@@ -1,4 +1,5 @@
 package ru.sportsDiary.controller;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.ui.Model;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/athletes")
+@Tag(name="Спортсмены", description="Методы для работы с сущностью спортсмены")
 public class AthleteController {
 
     private final AthleteService athleteService;
@@ -34,11 +36,11 @@ public class AthleteController {
         return athleteService.saveAthlete(athlete);
     }
 
-    @PutMapping("/{id}")
-    public Athlete updateAthlete(@PathVariable("id") Long id, @RequestBody Athlete athlete) {
-        athlete.setId(id);
-        return athleteService.saveAthlete(athlete);
-    }
+//    @PutMapping("/{id}")
+//    public Athlete updateAthlete(@PathVariable("id") Long id, @RequestBody Athlete athlete) {
+//        athlete.setId(id);
+//        return athleteService.saveAthlete(athlete);
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteAthlete(@PathVariable("id") Long id) {

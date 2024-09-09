@@ -11,3 +11,14 @@ spring:
     show-sql: true  # Показывает SQL-запросы в логах
 debug: false
 
+springdoc:
+  cache:
+    disabled: true
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    use-root-path: true
+    url: /api-docs
+    disable-swagger-default-url: true
+    config-url: /api-docs/swagger-config
