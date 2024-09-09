@@ -1,4 +1,5 @@
 package ru.sportsDiary.controller;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import ru.sportsDiary.service.AthleteService;
 import java.util.List;
 @Controller
 @RequestMapping("/all")  // Базовый URL для контроллера
+@Tag(name = "Спортсмены")
 public class ViewAthletesController {
     private final AthleteService athleteService;
     @Autowired

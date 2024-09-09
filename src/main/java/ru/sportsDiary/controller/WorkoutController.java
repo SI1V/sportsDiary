@@ -1,5 +1,6 @@
 package ru.sportsDiary.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.sportsDiary.entity.Workout;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/workouts")
+@Tag(name = "Тренировка")
 public class WorkoutController {
 
     private final WorkoutService workoutService;
@@ -33,11 +35,11 @@ public class WorkoutController {
         return workoutService.saveWorkout(workout);
     }
 
-    @PutMapping("/{id}")
-    public Workout updateWorkout(@PathVariable("id") Long id, @RequestBody Workout workout) {
-        workout.setWorkoutId(id);
-        return workoutService.saveWorkout(workout);
-    }
+//    @PutMapping("/{id}")
+//    public Workout updateWorkout(@PathVariable("id") Long id, @RequestBody Workout workout) {
+//        workout.setWorkoutId(id);
+//        return workoutService.saveWorkout(workout);
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteWorkout(@PathVariable("id") Long id) {
