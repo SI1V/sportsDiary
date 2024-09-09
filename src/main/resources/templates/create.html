@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавить Спортсмена - Дневник Спортсмена</title>
+  <!-- Подключение Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Дополнительные стили -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-dark text-white text-center py-4">
+  <div class="container">
+    <h1>Добавить Спортсмена</h1>
+    <p>Заполните данные о спортсмене</p>
+  </div>
+</header>
+
+<!-- Athlete Form -->
+<div class="container">
+  <div class="form-container">
+    <h2 class="text-center mb-4">Форма спортсмена</h2>
+    <form id="athleteForm">
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Фамилия</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" required>
+      </div>
+      <div class="mb-3">
+        <label for="firstName" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" required>
+      </div>
+      <div class="mb-3">
+        <label for="middleName" class="form-label">Отчество</label>
+        <input type="text" class="form-control" id="middleName" name="middleName">
+      </div>
+      <div class="mb-3">
+        <label for="birthDate" class="form-label">Дата рождения</label>
+        <input type="date" class="form-control" id="birthDate" name="birthDate" required>
+      </div>
+      <div class="mb-3">
+        <label for="height" class="form-label">Рост (см)</label>
+        <input type="number" class="form-control" id="height" name="height" step="0.1">
+      </div>
+      <div class="mb-3">
+        <label for="weight" class="form-label">Вес (кг)</label>
+        <input type="number" class="form-control" id="weight" name="weight" step="0.1">
+      </div>
+      <button type="submit" class="btn btn-primary">Создать Спортсмена</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-4">
+  <div class="container">
+    <p>&copy; 2024 Sports Diary. Все права защищены.</p>
+  </div>
+</footer>
+
+<!-- Подключение Bootstrap JS и Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+<!-- Обработчик формы -->
+<script>
+  document.getElementById('athleteForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const athleteData = {
+      lastName: document.getElementById('lastName').value,
+      firstName: document.getElementById('firstName').value,
+      middleName: document.getElementById('middleName').value,
+      birthDate: document.getElementById('birthDate').value,
+      height: parseFloat(document.getElementById('height').value),
+      weight: parseFloat(document.getElementById('weight').value)
+    };
+
+    // Отправка данных на сервер через fetch
+    fetch('http://localhost:8080/athletes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(athleteData)
+    })
+            .then(response => response.json())
+            .then(data => {
+              console.log('Успешно создано:', data);
+              alert('Спортсмен успешно создан!');
+            })
+            .catch(error => {
+              console.error('Ошибка:', error);
+              alert('Произошла ошибка при создании спортсмена.');
+            });
+  });
+</script>
+
+</body>
+</html>

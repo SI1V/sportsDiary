@@ -1,5 +1,6 @@
 package ru.sportsDiary.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.sportsDiary.entity.Athlete;
 import ru.sportsDiary.repository.AthleteRepository;
@@ -12,11 +13,12 @@ public class AthleteService {
 
     private final AthleteRepository athleteRepository;
 
+    @Autowired
     public AthleteService(AthleteRepository athleteRepository) {
         this.athleteRepository = athleteRepository;
     }
 
-    public List<Athlete> getAllAthlete() {
+    public List<Athlete> findAll() {
         return athleteRepository.findAll();
     }
 

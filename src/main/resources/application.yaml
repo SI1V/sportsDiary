@@ -5,5 +5,9 @@ spring:
     url: jdbc:postgresql://localhost:5433/my_project
     username: postgres
     password: A123456z
+  jpa:
+    hibernate:
+      ddl-auto: update  # Обновляет схему базы данных, если необходимо
+    show-sql: true  # Показывает SQL-запросы в логах
 debug: false
 

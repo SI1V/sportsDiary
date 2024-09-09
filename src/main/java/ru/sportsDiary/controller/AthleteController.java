@@ -1,7 +1,7 @@
 package ru.sportsDiary.controller;
+import org.springframework.ui.Model;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import ru.sportsDiary.entity.Athlete;
 import ru.sportsDiary.service.AthleteService;
@@ -21,7 +21,7 @@ public class AthleteController {
 
     @GetMapping
     public List<Athlete> getAllAthletes() {
-        return athleteService.getAllAthlete();
+        return athleteService.findAll();
     }
 
     @GetMapping("/{id}")
