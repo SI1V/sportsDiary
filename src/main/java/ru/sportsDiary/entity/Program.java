@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import ru.sportsDiary.entity.Athlete;
 
 @Entity
-@Table(name = "programs")
+@Table(name = "programs", schema = "sports_diary")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

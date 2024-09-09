@@ -10,7 +10,7 @@ import ru.sportsDiary.entity.Athlete;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "workouts")
+@Table(name = "workouts", schema = "sports_diary")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

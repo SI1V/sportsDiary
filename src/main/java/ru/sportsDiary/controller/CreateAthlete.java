@@ -29,6 +29,6 @@ class CreateAthleteController {
     @PostMapping("/create")
     public String createAthlete(@ModelAttribute Athlete athlete) {
         athleteService.saveAthlete(athlete); // Сохраняем нового атлета через сервис
-        return "redirect:/athletes"; // Редирект на список всех атлетов после успешного создания
+        return "athletes"; // Редирект на список всех атлетов после успешного создания
     }
 }

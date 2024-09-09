@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "exercises")
+@Table(name = "exercises", schema = "sports_diary")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,6 +30,10 @@ public class Exercise {
 
     @Column(name = "exercise_type", nullable = false)
     private String exerciseType;
+
+    @ManyToOne
+    @JoinColumn(name = "athlete_id")
+    private Athlete athlete;
 
     @Column(name = "is_default", nullable = false)
     private Boolean isDefault;
