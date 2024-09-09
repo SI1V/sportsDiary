@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface WorkoutRepository extends JpaRepository<Workout, Long> {
-    // Поиск всех тренировок для конкретного атлета
-    List<Workout> findByAthleteAthleteId(Long athleteId);
+
 }

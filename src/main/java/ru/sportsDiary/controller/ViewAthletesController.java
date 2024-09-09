@@ -18,7 +18,7 @@ public class ViewAthletesController {
     // Отобразить список всех атлетов
     @GetMapping
     public String viewAllAthletes(Model model) {
-        List<Athlete> athletes = athleteService.getAllAthlete(); // Получаем список всех атлетов
+        List<Athlete> athletes = athleteService.findAll(); // Получаем список всех атлетов
         model.addAttribute("athletes", athletes); // Добавляем список атлетов в модель
 
         // Проверка на пустой список атлетов

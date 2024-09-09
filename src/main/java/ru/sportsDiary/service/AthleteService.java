@@ -18,7 +18,7 @@ public class AthleteService {
         this.athleteRepository = athleteRepository;
     }
 
-    public List<Athlete> getAllAthlete() {
+    public List<Athlete> findAll() {
         return athleteRepository.findAll();
     }
 

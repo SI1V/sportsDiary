@@ -8,6 +8,4 @@ import java.util.List;
 
 @Repository
 public interface ProgramRepository extends JpaRepository<Program, Long> {
-    // Поиск всех программ для конкретного атлета
-    List<Program> findByAthleteAthleteId(Long athleteId);
 }

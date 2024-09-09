@@ -21,7 +21,7 @@ public class AthleteController {
 
     @GetMapping
     public List<Athlete> getAllAthletes() {
-        return athleteService.getAllAthlete();
+        return athleteService.findAll();
     }
 
     @GetMapping("/{id}")
@@ -34,11 +34,11 @@ public class AthleteController {
         return athleteService.saveAthlete(athlete);
     }
 
-    @PutMapping("/{id}")
-    public Athlete updateAthlete(@PathVariable("id") Long id, @RequestBody Athlete athlete) {
-        athlete.setAthleteId(id);
-        return athleteService.saveAthlete(athlete);
-    }
+//    @PutMapping("/{id}")
+//    public Athlete updateAthlete(@PathVariable("id") Long id, @RequestBody Athlete athlete) {
+//        athlete.setAthleteId(id);
+//        return athleteService.saveAthlete(athlete);
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteAthlete(@PathVariable("id") Long id) {
