@@ -1,13 +1,14 @@
 package ru.sportsDiary.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.sportsDiary.entity.Athlete;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "workouts", schema = "sports_diary")
@@ -23,18 +24,28 @@ public class Workout {
     private Long workoutId;
 
     @Column(name = "workout_date", nullable = false)
-    private LocalDate workoutDate;
+    private java.sql.Date workoutDate;
 
-    @Column(name = "workout_duration", nullable = false)
-    private Integer workoutDuration;
-
-    @Column(name = "workout_description", nullable = false)
+    @Column(name = "workout_description")
     private String workoutDescription;
 
-    @ManyToOne
-    @JoinColumn(name = "athlete_id")
-    private Athlete athlete;
+    @Column(name = "total_weight")
+    private Integer totalWeight;
+
+    @Column(name = "recorded")
+    private Boolean recorded;
+
+    @Column(name = "month_id")
+    private Integer monthId;
+
+    @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Exercise> exercises = new ArrayList<>();
 
     @Column(name = "workout_comments")
     private String workoutComments;
+
+    @ManyToOne
+    @JoinColumn(name = "athlete_id", nullable = false)
+    private Athlete athlete;
 }

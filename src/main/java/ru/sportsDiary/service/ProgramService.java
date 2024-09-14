@@ -2,6 +2,7 @@ package ru.sportsDiary.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.sportsDiary.entity.Program;
 import ru.sportsDiary.repository.ProgramRepository;
 
@@ -18,13 +19,17 @@ public class ProgramService {
         this.programRepository = programRepository;
     }
 
+    @Transactional
+    public Optional<Program> getProgramById(Long id) {
+        return programRepository.findById(id);
+    }
     public List<Program> getAllPrograms() {
         return programRepository.findAll();
     }
 
-    public Optional<Program> getProgramById(Long id) {
-        return programRepository.findById(id);
-    }
+//    public Optional<Program> getProgramById(Long id) {
+//        return programRepository.findById(id);
+//    }
 
     public Program saveProgram(Program program) {
         return programRepository.save(program);

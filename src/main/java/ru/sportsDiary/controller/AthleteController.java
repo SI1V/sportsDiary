@@ -36,11 +36,6 @@ public class AthleteController {
         return athleteService.saveAthlete(athlete);
     }
 
-//    @PutMapping("/{id}")
-//    public Athlete updateAthlete(@PathVariable("id") Long id, @RequestBody Athlete athlete) {
-//        athlete.setId(id);
-//        return athleteService.saveAthlete(athlete);
-//    }
 
     @DeleteMapping("/{id}")
     public void deleteAthlete(@PathVariable("id") Long id) {

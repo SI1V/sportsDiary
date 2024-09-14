@@ -1,5 +1,6 @@
 package ru.sportsDiary.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class Athlete {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "athlete_id")
+    @JsonIgnore
     private Long id;
 
     @Column(name = "last_name", nullable = false)

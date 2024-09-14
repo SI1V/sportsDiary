@@ -7,6 +7,7 @@ import ru.sportsDiary.entity.Program;
 import ru.sportsDiary.service.ProgramService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/programs")
@@ -27,7 +28,8 @@ public class ProgramController {
 
     @GetMapping("/{id}")
     public Program getProgramById(@PathVariable("id") Long id) {
-        return programService.getProgramById(id).orElse(null);
+        Optional<Program> optionalProgram = programService.getProgramById(id);
+        return optionalProgram.orElse(null);
     }
 
     @PostMapping
